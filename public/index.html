@@ -92,13 +92,18 @@ header.solid .burger span{background:var(--dark)}
 
 /* Hero */
 #home{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;color:#fff;padding:0;background:var(--darker);position:relative}
-.hero-txt{display:flex;flex-direction:column;justify-content:center;padding:130px 50px 90px max(16px,calc((100vw - var(--wrap))/2 + 16px))}
+.hero-txt{display:flex;flex-direction:column;justify-content:center;padding:100px 50px 40px max(16px,calc((100vw - var(--wrap))/2 + 16px))}
 .hero-pic{position:relative;min-height:420px}
 .hero-pic img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 25%}
 .hero-pic::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--darker) 0,transparent 22%)}
 #home h1{color:#fff;font-size:clamp(34px,5.2vw,64px);text-transform:uppercase;letter-spacing:4px;font-weight:700;margin-bottom:18px;line-height:1.1}
 #home p.lead{font-size:clamp(15px,1.6vw,18px);max-width:520px;margin-bottom:34px;color:#e0e0e0;font-weight:300}
 .hero-cta{display:flex;gap:14px;flex-wrap:wrap}
+.hero-cl{margin-top:26px;max-width:500px}
+.hero-cl .hc-t{font-family:var(--head);font-size:10px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:10px}
+.hero-cl .hc-g{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px 14px;align-items:center;justify-items:start}
+.hero-cl img{height:var(--h,16px);width:auto;max-width:100%;filter:brightness(0) invert(1);opacity:.7;transition:opacity .3s}
+.hero-cl img:hover{opacity:1}
 .scroll-hint{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);width:22px;height:36px;border:2px solid rgba(255,255,255,.6);border-radius:12px;z-index:3}
 .scroll-hint::after{content:"";position:absolute;left:50%;top:6px;width:3px;height:7px;margin-left:-1.5px;background:#fff;border-radius:2px;animation:sc 1.6s infinite}
 @keyframes sc{0%{opacity:1;transform:translateY(0)}100%{opacity:0;transform:translateY(12px)}}
@@ -298,6 +303,7 @@ footer a:hover{color:var(--accent)}
   #home,.about,.two,.case-head,.camps,.cards3,.statement,.contact{grid-template-columns:minmax(0,1fr)}
   .hero-txt{padding:120px 16px 50px}
   .hero-pic{display:none}
+  .hero-cl{max-width:none}.hero-cl .hc-g{gap:16px 12px}.hero-cl img{height:calc(var(--h,16px)*.8)}
   .hero-pic::after{background:linear-gradient(180deg,var(--darker) 0,transparent 25%)}
   .scroll-hint{display:none}
   .posts{grid-template-columns:repeat(2,1fr)}
@@ -390,6 +396,7 @@ footer a:hover{color:var(--accent)}
       </div>
       <p class="lf-m" role="status" aria-live="polite"></p>
     </form>
+    <div class="hero-cl rv" style="--d:460ms"><div class="hc-t">Já atendi</div><div class="hc-g"><img src="img/cli-acqio.webp" alt="Acqio" style="--h:26px" loading="lazy" decoding="async"><img src="img/cli-homegrill.webp" alt="Home &amp; Grill" style="--h:30px" loading="lazy" decoding="async"><img src="img/cli-unifg.webp" alt="UNIFG" style="--h:16px" loading="lazy" decoding="async"><img src="img/cli-fpb.webp" alt="FPB" style="--h:24px" loading="lazy" decoding="async"><img src="img/cli-guardcenter.webp" alt="GuardCenter" style="--h:30px" loading="lazy" decoding="async"><img src="img/cli-sakapraia.webp" alt="Sakapraia" style="--h:16px" loading="lazy" decoding="async"><img src="img/cli-scaven.webp" alt="Scaven" style="--h:14px" loading="lazy" decoding="async"><img src="img/cli-netguincho.webp" alt="NetGuincho" style="--h:16px" loading="lazy" decoding="async"></div></div>
   </div>
   <div class="hero-pic rv f">
     <img width="1000" height="1498" decoding="async" src="img/hero-blazer.webp" alt="Paulo Luiz Gomes de blazer claro" fetchpriority="high">
