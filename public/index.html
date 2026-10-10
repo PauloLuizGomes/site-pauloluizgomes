@@ -286,6 +286,22 @@ footer a:hover{color:var(--accent)}
   .st-l .box{max-width:85%;padding:24px 26px}
 }
 
+/* Formulário de captação */
+.lf{margin-top:30px;max-width:540px}
+.lf .lf-t{font-family:var(--head);font-size:12px;letter-spacing:2px;text-transform:uppercase;font-weight:600;margin-bottom:12px;color:#fff}
+.lf .lf-r{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.lf input[type=text],.lf input[type=tel],.lf input[type=email]{width:100%;font:400 14px var(--body,inherit);padding:14px 16px;border:1px solid rgba(255,255,255,.35);background:rgba(255,255,255,.08);color:#fff;border-radius:0;outline:0}
+.lf input::placeholder{color:rgba(255,255,255,.65)}
+.lf input:focus{border-color:var(--accent);background:rgba(255,255,255,.14)}
+.lf .lf-n{grid-column:1/-1}
+.lf button{grid-column:1/-1;cursor:pointer;font-family:inherit}
+.lf .hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+.lf .lf-m{font-size:13px;margin-top:10px;min-height:18px;color:#e0e0e0}
+.lf .lf-m a{color:#fff;text-decoration:underline}
+.lf.lt{max-width:none;margin:26px 0 8px}
+.lf.lt input{border-color:#d6d6d6;background:#fff;color:var(--dark)}
+.lf.lt input::placeholder{color:#8a8a8a}
+@media(max-width:560px){.lf .lf-r{grid-template-columns:minmax(0,1fr)}}
 </style>
 </head>
 <body>
@@ -320,6 +336,17 @@ footer a:hover{color:var(--accent)}
       <a class="btn" href="#varejo">Ver cases</a>
       <a class="btn ghost" href="#contato">Fale comigo</a>
     </div>
+    <form class="lf rv" style="--d:380ms" data-src="hero" novalidate>
+      <div class="lf-t">Prefere que eu entre em contato?</div>
+      <div class="lf-r">
+        <input class="lf-n" type="text" name="nome" placeholder="Seu nome" autocomplete="name" required aria-label="Seu nome">
+        <input type="tel" name="telefone" placeholder="Telefone / WhatsApp" autocomplete="tel" required aria-label="Telefone ou WhatsApp">
+        <input type="email" name="email" placeholder="Seu e-mail" autocomplete="email" required aria-label="Seu e-mail">
+        <input class="hp" type="text" name="site" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <button class="btn" type="submit">Quero ser contatado</button>
+      </div>
+      <p class="lf-m" role="status" aria-live="polite"></p>
+    </form>
   </div>
   <div class="hero-pic rv f">
     <img src="img/hero-blazer.webp" alt="Paulo Luiz Gomes de blazer claro" fetchpriority="high">
@@ -570,6 +597,17 @@ footer a:hover{color:var(--accent)}
       <span class="eyebrow rv f">Contato</span>
       <h2 class="rv">Vamos conversar?</h2>
       <p class="sub rv" style="--d:100ms">Conte o que você precisa. Respondo pelo canal que for mais prático para você.</p>
+      <form class="lf lt rv" style="--d:380ms" data-src="contato" novalidate>
+      <div class="lf-t">Deixe seus dados que eu retorno</div>
+      <div class="lf-r">
+        <input class="lf-n" type="text" name="nome" placeholder="Seu nome" autocomplete="name" required aria-label="Seu nome">
+        <input type="tel" name="telefone" placeholder="Telefone / WhatsApp" autocomplete="tel" required aria-label="Telefone ou WhatsApp">
+        <input type="email" name="email" placeholder="Seu e-mail" autocomplete="email" required aria-label="Seu e-mail">
+        <input class="hp" type="text" name="site" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <button class="btn" type="submit">Quero ser contatado</button>
+      </div>
+      <p class="lf-m" role="status" aria-live="polite"></p>
+    </form>
       <div class="ways rv" style="--d:150ms">
         <div><h4>WhatsApp</h4><a href="https://wa.me/5583996376324" target="_blank" rel="noopener">(83) 9 9637-6324</a></div>
         <div><h4>E-mail</h4><a href="mailto:pauloluiz17@gmail.com">pauloluiz17@gmail.com</a></div>
@@ -685,6 +723,36 @@ render(SNAP);
 try{fetch(API).then(function(r){if(!r.ok)throw 0;return r.json()}).then(function(l){if(l&&l.length)render(l.map(norm))}).catch(function(){})}catch(e){}
 })();
 
+(function(){
+  var HOOK='https://n8n.pauloluizgomes.com.br/webhook/site-lead';
+  var WA='https://wa.me/5583996376324';
+  document.querySelectorAll('form.lf').forEach(function(f){
+    var msg=f.querySelector('.lf-m'),btn=f.querySelector('button');
+    f.addEventListener('submit',function(e){
+      e.preventDefault();
+      var d=Object.fromEntries(new FormData(f).entries());
+      if(d.site){return}
+      var tel=(d.telefone||'').replace(/\D/g,'');
+      if(!d.nome||d.nome.trim().length<2){msg.textContent='Informe seu nome.';return}
+      if(tel.length<10){msg.textContent='Informe um telefone com DDD.';return}
+      if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(d.email||'')){msg.textContent='Informe um e-mail válido.';return}
+      btn.disabled=true;msg.textContent='Enviando...';
+      var p=new URLSearchParams(location.search);
+      var body={nome:d.nome.trim(),telefone:d.telefone.trim(),email:d.email.trim(),origem:f.dataset.src,pagina:location.href,utm_source:p.get('utm_source')||'',utm_medium:p.get('utm_medium')||'',utm_campaign:p.get('utm_campaign')||'',enviado_em:new Date().toISOString()};
+      var fail=function(){
+        btn.disabled=false;
+        var t=encodeURIComponent('Olá, Paulo! Sou '+body.nome+' e vim pelo seu site. Meu e-mail: '+body.email);
+        msg.innerHTML='Não consegui enviar agora. <a href="'+WA+'?text='+t+'" target="_blank" rel="noopener">Chame no WhatsApp</a>.';
+      };
+      fetch(HOOK,{method:'POST',headers:{'Content-Type':'text/plain'},body:JSON.stringify(body)}).then(function(r){
+        if(!r.ok)throw 0;
+        f.reset();btn.disabled=false;msg.textContent='Recebi seus dados. Entro em contato em breve.';
+        if(window.gtag)gtag('event','generate_lead',{method:body.origem});
+        if(window.fbq)fbq('track','Lead');
+      }).catch(fail);
+    });
+  });
+})();
 </script>
 </body>
 </html>
