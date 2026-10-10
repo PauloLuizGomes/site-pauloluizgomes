@@ -779,7 +779,7 @@ try{fetch(API).then(function(r){if(!r.ok)throw 0;return r.json()}).then(function
         var t=encodeURIComponent('Olá, Paulo! Sou '+body.nome+' e vim pelo seu site. Meu e-mail: '+body.email);
         msg.innerHTML='Não consegui enviar agora. <a href="'+WA+'?text='+t+'" target="_blank" rel="noopener">Chame no WhatsApp</a>.';
       };
-      fetch(HOOK,{method:'POST',headers:{'Content-Type':'text/plain'},body:JSON.stringify(body)}).then(function(r){
+      fetch(HOOK,{method:'POST',body:new URLSearchParams(body)}).then(function(r){
         if(!r.ok)throw 0;
         f.reset();btn.disabled=false;msg.textContent='Recebi seus dados. Entro em contato em breve.';
         if(window.gtag)gtag('event','generate_lead',{method:body.origem});
