@@ -251,6 +251,14 @@ header.solid .burger span{background:var(--dark)}
 .post p{font-size:14px;margin-bottom:14px;flex:1}
 .post .more{font-family:var(--head);font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:600;color:var(--accent)}
 .blog-foot{text-align:center;margin-top:44px}
+.sl-strip{display:flex;align-items:center;justify-content:center;gap:34px;max-width:880px;margin:0 auto 46px;padding:26px 34px;background:#fff;border:1px solid #ececec}
+.sl-strip img{width:170px;height:auto;flex:0 0 auto}
+.sl-strip .sl-t{border-left:1px solid #e3e3e3;padding-left:34px;text-align:left}
+.sl-strip .sl-t strong{display:block;font-family:var(--head);font-size:clamp(17px,2vw,21px);line-height:1.35;color:var(--dark)}
+.sl-strip .sl-t strong b{color:var(--accent)}
+.sl-strip .sl-t a{display:inline-block;margin-top:10px;font-size:13px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--dark);border-bottom:2px solid var(--accent)}
+.blog-foot .btn+.btn{margin-left:12px}
+@media(max-width:700px){.sl-strip{flex-direction:column;gap:18px;padding:24px 20px;text-align:center}.sl-strip .sl-t{border-left:0;padding-left:0;text-align:center}.blog-foot .btn{display:block;margin:0 auto 12px;max-width:320px}.blog-foot .btn+.btn{margin-left:auto}}
 
 /* Contato */
 #contato{background:var(--dark);color:#bdbdbd;padding:0}
@@ -612,6 +620,7 @@ footer a:hover{color:var(--accent)}
       <h2 class="sec-title rv">Últimas colunas</h2>
       <p class="sec-sub rv" style="--d:100ms;font-weight:700;color:var(--dark);font-size:17px">Últimas publicações postadas no Seliga Litoral</p>
     </div>
+    <div class="sl-strip rv"><a href="https://www.seligalitoral.com.br/" target="_blank" rel="noopener" aria-label="Seliga Litoral"><img src="img/seliga-litoral-logo.webp" alt="Seliga Litoral" width="170" height="52" loading="lazy" decoding="async"></a><div class="sl-t"><strong>Portal com mais de <b>4,5 milhões</b> de visualizações no Instagram em 90 dias</strong><a href="https://www.instagram.com/seligalitoral_/" target="_blank" rel="noopener">Siga @seligalitoral_</a></div></div>
     <div class="posts" id="posts">
       <article class="post"><div class="th" style="background-image:url('img/posts/p1.webp')" role="img" aria-label="Nordeste iguala o Sudeste em rebanho bovino, com 37,3 milhões de cabeças, e Pernambuco cresce 4,6% em 2025, aponta IBGE"></div><div class="in"><span class="meta">Agronegócio · 01 out 2026</span><h3>Nordeste iguala o Sudeste em rebanho bovino, com 37,3 milhões de cabeças, e Pernambuco cresce 4,6% em 2025, aponta IBGE</h3><p>Foi a única região do país com expansão do efetivo bovino no ano passado, segundo a Pesquisa da Pecuária Municipal. Pernambuco somou 124 mil…</p><a class="more" href="https://seligalitoral.com.br/2026/10/01/nordeste-iguala-o-sudeste-em-rebanho-bovino-com-373-milhoes-de-cabecas-e-pernambuco-cresce-46-em-2025-aponta-ibge/" target="_blank" rel="noopener">Ler no Seliga →</a></div></article>
       <article class="post"><div class="th" style="background-image:url('img/posts/p2.webp')" role="img" aria-label="Shopee abre vendas internacionais para pequenas e médias empresas brasileiras, com entrega na Argentina e no México"></div><div class="in"><span class="meta">Comércio Eletrônico · 30 set 2026</span><h3>Shopee abre vendas internacionais para pequenas e médias empresas brasileiras, com entrega na Argentina e no México</h3><p>A plataforma, lançada nesta terça-feira (29), passa a atender 150 mil vendedores brasileiros, depois de uma fase de testes em que 19 mil lojistas…</p><a class="more" href="https://seligalitoral.com.br/2026/09/30/shopee-abre-vendas-internacionais-para-pequenas-e-medias-empresas-brasileiras-com-entrega-na-argentina-e-no-mexico/" target="_blank" rel="noopener">Ler no Seliga →</a></div></article>
@@ -620,7 +629,7 @@ footer a:hover{color:var(--accent)}
       <article class="post"><div class="th" style="background-image:url('img/posts/p5.webp')" role="img" aria-label="Orquestra e Banda Sinfônica do Recife abrem concurso com 45 vagas para músicos; remuneração chega a R$ 5,5 mil"></div><div class="in"><span class="meta">Concursos · 30 set 2026</span><h3>Orquestra e Banda Sinfônica do Recife abrem concurso com 45 vagas para músicos; remuneração chega a R$ 5,5 mil</h3><p>As inscrições vão até 28 de outubro, no site da Fundatec, com taxa de R$ 150. São 34 vagas para a Orquestra Sinfônica do Recife e 11 para a Banda…</p><a class="more" href="https://seligalitoral.com.br/2026/09/30/orquestra-e-banda-sinfonica-do-recife-abrem-concurso-com-45-vagas-para-musicos-remuneracao-chega-a-r-55-mil/" target="_blank" rel="noopener">Ler no Seliga →</a></div></article>
       <article class="post"><div class="th" style="background-image:url('img/posts/p6.webp')" role="img" aria-label="Pix movimenta R$ 18,6 bilhões na Paraíba em agosto, alta de 14,2%, e uso por empresas quase dobra em número de transações"></div><div class="in"><span class="meta">Negócios · 30 set 2026</span><h3>Pix movimenta R$ 18,6 bilhões na Paraíba em agosto, alta de 14,2%, e uso por empresas quase dobra em número de transações</h3><p>Dados do Banco Central mostram 119,4 milhões de operações feitas por pessoas físicas no estado no mês, e cerca de 63% dos paraibanos usando o Pix.…</p><a class="more" href="https://seligalitoral.com.br/2026/09/30/pix-movimenta-r-186-bilhoes-na-paraiba-em-agosto-alta-de-142-e-uso-por-empresas-quase-dobra-em-numero-de-transacoes/" target="_blank" rel="noopener">Ler no Seliga →</a></div></article>
     </div>
-    <div class="blog-foot rv"><a class="btn dark" href="https://www.seligalitoral.com.br/author/paulo-luiz/" target="_blank" rel="noopener">Ver todos no Seliga Litoral</a></div>
+    <div class="blog-foot rv"><a class="btn dark" href="https://www.seligalitoral.com.br/author/paulo-luiz/" target="_blank" rel="noopener">Ver todos no Seliga Litoral</a><a class="btn" href="https://www.instagram.com/seligalitoral_/" target="_blank" rel="noopener">Instagram do Seliga</a></div>
   </div>
 </section>
 
