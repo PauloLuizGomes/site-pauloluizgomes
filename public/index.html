@@ -98,12 +98,12 @@ header.solid .burger span{background:var(--dark)}
 
 /* Mercados */
 #mercados{background:var(--light)}
-.two{display:grid;grid-template-columns:1fr 1fr;gap:30px}
-.market{background:#fff;padding:46px 40px;border-bottom:3px solid var(--accent);box-shadow:0 6px 24px rgba(0,0,0,.06);transition:transform .3s;display:flex;flex-direction:column;align-items:flex-start}
+.two{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.market{background:#fff;padding:42px 32px;border-bottom:3px solid var(--accent);box-shadow:0 6px 24px rgba(0,0,0,.06);transition:transform .3s;display:flex;flex-direction:column;align-items:flex-start}
 .market:hover{transform:translateY(-6px)}
 .market svg{color:var(--accent);margin-bottom:20px}
 .market .eyebrow{font-weight:700}
-.market h3{font-size:clamp(17px,2vw,21px);margin-bottom:12px;white-space:nowrap}
+.market h3{font-size:clamp(17px,1.6vw,20px);margin-bottom:12px;line-height:1.3}@media(min-width:901px){.market h3{min-height:2.6em}}
 .market p{font-size:15px;margin-bottom:26px;flex:1}
 #imobiliario{scroll-margin-top:70px}
 
@@ -285,6 +285,7 @@ footer a:hover{color:var(--accent)}
   .st-l{min-height:360px}
   .st-l .box{max-width:85%;padding:24px 26px}
 }
+
 </style>
 </head>
 <body>
@@ -366,7 +367,7 @@ footer a:hover{color:var(--accent)}
     <div class="center">
       <span class="eyebrow rv f">Mercados</span>
       <h2 class="sec-title rv">Onde posso ajudar você</h2>
-      <p class="sec-sub rv" style="--d:100ms">Dois atendimentos com página própria. Escolha o que faz sentido para o seu momento.</p>
+      <p class="sec-sub rv" style="--d:100ms">Três frentes de atuação. Escolha o que faz sentido para o seu momento.</p>
     </div>
     <div class="two">
       <article class="market rv l" id="imobiliario">
@@ -382,6 +383,13 @@ footer a:hover{color:var(--accent)}
         <h3>Especialista em marketing e vendas</h3>
         <p>Estrutura de marketing e vendas para corretoras: automação de WhatsApp, implantação de CRM e treinamento de vendas. Atuação como advisor em empresas e corretoras, com foco em seguros e consórcios.</p>
         <a class="btn" href="https://seguros.pauloluizgomes.com.br" rel="noopener">Conheça o mercado securitário</a>
+      </article>
+      <article class="market rv" style="--d:100ms" id="varejo-mercado">
+        <svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 4h2.5l2.2 10.2a1 1 0 0 0 1 .8h8.6a1 1 0 0 0 1-.8L20 8H6.2"/><circle cx="9.5" cy="19" r="1.3"/><circle cx="17" cy="19" r="1.3"/></svg>
+        <span class="eyebrow">Varejo supermercadista</span>
+        <h3>Marketing para o varejo</h3>
+        <p>Experiência no varejo supermercadista com o Central Supermercado, no litoral sul da Paraíba. Cuido da jornada do consumidor inteira: da campanha que traz o cliente à loja ao clube de benefícios que o faz voltar, hoje responsável por 28,8% do faturamento.</p>
+        <a class="btn" href="#varejo">Veja os cases do varejo</a>
       </article>
     </div>
   </div>
@@ -676,6 +684,7 @@ function norm(p){var e=p._embedded||{},m=(e['wp:featuredmedia']||[])[0]||{},sz=(
 render(SNAP);
 try{fetch(API).then(function(r){if(!r.ok)throw 0;return r.json()}).then(function(l){if(l&&l.length)render(l.map(norm))}).catch(function(){})}catch(e){}
 })();
+
 </script>
 </body>
 </html>
