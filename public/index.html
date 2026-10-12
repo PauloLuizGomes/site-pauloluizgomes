@@ -94,6 +94,7 @@ header.solid{background:rgba(255,255,255,.97);box-shadow:0 2px 14px rgba(0,0,0,.
 .logo{font-family:var(--head);font-weight:700;font-size:19px;letter-spacing:2px;color:#fff;text-transform:uppercase}
 .logo b{color:var(--accent)}
 header.solid .logo{color:var(--dark)}
+.logo{display:flex;align-items:center}.logo img{height:38px;width:auto;display:block;transition:filter .3s}header.solid .logo img{filter:brightness(0)}
 nav ul{display:flex;gap:26px;list-style:none;align-items:center}
 nav a{font-family:var(--head);font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:600;color:#fff}
 header.solid nav a{color:var(--dark)}
@@ -307,7 +308,8 @@ footer a:hover{color:var(--accent)}
 [data-draft] .ph{position:relative}
 [data-draft] .ph::before{content:"EXEMPLO";position:absolute;top:8px;right:8px;z-index:5;background:#ffd400;color:#000;font:700 9px/1 var(--head);letter-spacing:1.5px;padding:4px 6px}
 
-@media (max-width:1060px){nav ul{gap:16px}.logo{font-size:16px}}
+@media (max-width:1060px){nav ul{gap:16px}.logo img{height:32px}}
+@media (max-width:480px){.logo img{height:28px}}
 @media (max-width:992px){
   .four,.stats{grid-template-columns:repeat(2,1fr)}
   .stat:nth-child(2){border-right:0}
@@ -373,7 +375,7 @@ footer a:hover{color:var(--accent)}
 
 <header id="top">
   <div class="wrap bar">
-    <a href="#home" class="logo">Paulo <b>Luiz</b> Gomes</a>
+    <a href="#home" class="logo" aria-label="Paulo Luiz Gomes"><img src="img/logo-plg.webp" alt="Paulo Luiz Gomes" width="252" height="38"></a>
     <button class="burger" aria-label="Abrir menu" aria-expanded="false"><span></span><span></span><span></span></button>
     <nav id="menu">
       <ul>
